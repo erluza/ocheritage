@@ -10,12 +10,12 @@ const langButtons = document.querySelectorAll('.lang-btn');
 // --- Multilanguage Dictionary ---
 const translations = {
   en: {
-    metaDesc: "OptiCraft: Another Inheritance — unofficial OptiCraft Heritage ports.",
+    metaDesc: "OptiCraft Heritage Developer Community — unofficial OptiCraft Heritage ports.",
     "btn-ports": "PORT LIST",
     "btn-about": "ABOUT US",
     "btn-back": "BACK",
     "controls": "<span>▲ ▼</span> SELECT &nbsp; <span>ENTER</span> OPEN &nbsp; <span>ESC</span> BACK",
-    "footer-disclaimer": "Developed by OptiCraft Heritage Community.<br>Not affiliated with Optiprojects.",
+    "footer-disclaimer": "Developed by OptiCraft Heritage Developer Community.<br>Not affiliated with Optiprojects.",
     "btn-view-project": "VIEW PROJECT",
     "btn-download": "DOWNLOAD",
     "btn-releases": "RELEASES",
@@ -48,12 +48,12 @@ const translations = {
     `
   },
   es: {
-    metaDesc: "OptiCraft: Another Inheritance — ports no oficiales de OptiCraft Heritage.",
+    metaDesc: "OptiCraft Heritage Developer Community — ports no oficiales de OptiCraft Heritage.",
     "btn-ports": "LISTA DE PORTS",
     "btn-about": "SOBRE NOSOTROS",
     "btn-back": "VOLVER",
     "controls": "<span>▲ ▼</span> SELECCIONAR &nbsp; <span>ENTER</span> ABRIR &nbsp; <span>ESC</span> VOLVER",
-    "footer-disclaimer": "Desarrollado por OptiCraft Heritage Community.<br>No afiliado a Optiprojects.",
+    "footer-disclaimer": "Desarrollado por OptiCraft Heritage Developer Community.<br>No afiliado a Optiprojects.",
     "btn-view-project": "VER PROYECTO",
     "btn-download": "DESCARGAR",
     "btn-releases": "LANZAMIENTOS",
