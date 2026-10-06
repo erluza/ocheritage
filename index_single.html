@@ -86,6 +86,14 @@ main{position:relative;z-index:2;width:min(1120px,94vw);margin:auto}
 .discord-corner-btn:hover{filter:brightness(1.15);outline:2px solid rgba(255,255,255,.3)}
 .discord-corner-btn:active{box-shadow:inset 2px 2px #363fb5,inset -2px -2px #8891f7,1px 1px #111;transform:translate(2px,2px)}
 
+/* Hide floating accessories when inside a panel so they do not overlap */
+body.panel-open .minecraft-version-text,
+body.panel-open .discord-corner-btn,
+body.panel-open .lang-switcher{
+  display:none!important
+}
+
+
 @media(max-width:780px){
   .port-browser{grid-template-columns:1fr}
   .port-list{border-right:0;border-bottom:2px solid #111;max-height:350px}
@@ -424,6 +432,7 @@ langButtons.forEach(btn => {
 
 // --- Panel Navigation & Home Screen Toggle ---
 function showPanel(id) {
+  document.body.classList.add('panel-open');
   titleScreen?.classList.add('hidden');
   legacyMenu?.classList.add('hidden');
   panels.forEach(p => p.classList.toggle('visible', p.id === id));
@@ -431,11 +440,13 @@ function showPanel(id) {
 }
 
 function showHome() {
+  document.body.classList.remove('panel-open');
   panels.forEach(p => p.classList.remove('visible'));
   titleScreen?.classList.remove('hidden');
   legacyMenu?.classList.remove('hidden');
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
 
 menuButtons.forEach(b => {
   b.addEventListener('click', () => showPanel(b.dataset.open));

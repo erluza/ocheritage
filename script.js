@@ -126,6 +126,7 @@ langButtons.forEach(btn => {
 
 // --- Panel Navigation & Home Screen Toggle ---
 function showPanel(id) {
+  document.body.classList.add('panel-open');
   titleScreen?.classList.add('hidden');
   legacyMenu?.classList.add('hidden');
   panels.forEach(p => p.classList.toggle('visible', p.id === id));
@@ -133,11 +134,13 @@ function showPanel(id) {
 }
 
 function showHome() {
+  document.body.classList.remove('panel-open');
   panels.forEach(p => p.classList.remove('visible'));
   titleScreen?.classList.remove('hidden');
   legacyMenu?.classList.remove('hidden');
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
 
 menuButtons.forEach(b => {
   b.addEventListener('click', () => showPanel(b.dataset.open));
