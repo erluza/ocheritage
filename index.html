@@ -5,16 +5,17 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" id="meta-desc" content="OptiCraft: Another Inheritance — unofficial OptiCraft Heritage ports.">
 <title>OptiCraft: Another Inheritance</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="stylesheet" href="style.css">
 <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
 <div class="lang-switcher">
-  <button class="lang-btn active" data-lang="en" aria-label="English">
-    <span class="flag-icon">🇺🇸</span><span>EN</span>
+  <button class="lang-btn active" data-lang="en" title="English" aria-label="English">
+    <img class="lang-flag" src="flag-us.png" alt="English">
   </button>
-  <button class="lang-btn" data-lang="es" aria-label="Español">
-    <span class="flag-icon">🇪🇸</span><span>ES</span>
+  <button class="lang-btn" data-lang="es" title="Español" aria-label="Español">
+    <img class="lang-flag" src="flag-ar.png" alt="Español">
   </button>
 </div>
 
@@ -177,6 +178,19 @@
     </section>
   </main>
 </div>
+
+<!-- Minecraft 1.2.5 style bottom-left credits -->
+<aside class="minecraft-version-text" id="minecraft-version-text" aria-label="Version & credits">
+  <div class="version-title">OptiCraft: Another Inheritance</div>
+  <div class="version-disclaimer" data-i18n="footer-disclaimer">Developed by OptiCraft Heritage Community.<br>Not affiliated with Optiprojects.</div>
+</aside>
+
+<!-- Discord bottom-right corner button -->
+<a class="discord-corner-btn" href="https://discord.gg/5ndWfJzb7e" target="_blank" rel="noreferrer" title="Discord">
+  <i class="fa-brands fa-discord" aria-hidden="true"></i>
+  <span>Discord</span>
+</a>
+
 <script src="script.js"></script>
 </body>
 </html>

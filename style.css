@@ -6,13 +6,13 @@ button,a{font:inherit;font-family:Minecraft,Arial,Helvetica,sans-serif}
 
 /* Language Switcher */
 .lang-switcher{position:fixed;top:14px;right:16px;z-index:1000;display:flex;gap:8px}
-.lang-btn{background:#4a4a4a;color:#fff;border:2px solid #1b1b1b;box-shadow:inset 2px 2px #888,inset -2px -2px #222,2px 2px rgba(0,0,0,.6);padding:6px 12px;font-family:Minecraft,Arial,Helvetica,sans-serif;font-size:13px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;text-shadow:2px 2px #222;user-select:none;transition:background .15s ease}
+.lang-btn{background:#4a4a4a;color:#fff;border:2px solid #1b1b1b;box-shadow:inset 2px 2px #888,inset -2px -2px #222,2px 2px rgba(0,0,0,.6);padding:4px 6px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;user-select:none;transition:background .15s ease,transform .05s ease}
 .lang-btn:hover{background:#666}
 .lang-btn.active{background:#777;outline:2px solid rgba(255,255,255,.8);box-shadow:inset 2px 2px #222,inset -2px -2px #aaa}
 .lang-btn:active{transform:translate(1px,1px)}
-.flag-icon{font-size:16px;line-height:1}
+.lang-flag{display:block;width:28px;height:28px;object-fit:contain}
 
-.screen{min-height:100vh;position:relative;background:#111;padding-bottom:60px}
+.screen{min-height:100vh;position:relative;background:#111;padding-bottom:80px}
 .panorama{position:fixed;inset:0;overflow:hidden;z-index:0;background:#111}
 .panorama-track{position:absolute;top:0;left:0;height:100%;width:200%;display:flex;animation:tu12-panorama 35s linear infinite}
 .panorama-track img{display:block;flex:0 0 50%;width:50%;height:100%;min-width:100vw;object-fit:cover;object-position:center;max-width:none;transform:none}
@@ -32,7 +32,7 @@ main{position:relative;z-index:2;width:min(1120px,94vw);margin:auto}
 .menu-button:hover,.menu-button.selected,.legacy-button:hover{background:#8d8d8d;outline:2px solid rgba(255,255,255,.2)}
 .menu-button:active,.legacy-button:active{box-shadow:inset 2px 2px #444,inset -2px -2px #aaa,1px 1px #111;transform:translate(2px,2px)}
 
-.legacy-panel{display:none;background:rgba(38,38,38,.96);border:3px solid #111;box-shadow:inset 2px 2px #666,inset -2px -2px #171717,7px 7px rgba(0,0,0,.5);padding:20px;margin-top:5vh;margin-bottom:40px}
+.legacy-panel{display:none;background:rgba(38,38,38,.96);border:3px solid #111;box-shadow:inset 2px 2px #666,inset -2px -2px #171717,7px 7px rgba(0,0,0,.5);padding:20px;margin-top:5vh;margin-bottom:60px}
 .legacy-panel.visible{display:block}
 .panel-heading{display:flex;align-items:center;justify-content:center;gap:20px;padding:7px 10px 16px;border-bottom:2px solid #111}
 .section-heading-art{display:block;width:min(430px,70vw);max-height:95px;object-fit:contain;filter:drop-shadow(4px 4px 0 rgba(0,0,0,.7))}
@@ -57,7 +57,7 @@ main{position:relative;z-index:2;width:min(1120px,94vw);margin:auto}
 .panel-footer-actions{display:flex;justify-content:center;margin-top:16px}
 .panel-footer-actions>.legacy-button{max-width:250px;margin:10px auto 0}
 
-.about-panel{max-width:900px;margin:5vh auto 40px}
+.about-panel{max-width:900px;margin:5vh auto 60px}
 .about-content{display:flex;justify-content:center;align-items:center;padding:24px 20px;max-width:100%;overflow:hidden}
 .about-copy{width:min(760px,100%);margin:0 auto;text-align:center}
 .about-copy p{margin:0 0 16px;font-size:17px;line-height:1.6;color:#fff;text-shadow:2px 2px #222}
@@ -66,14 +66,28 @@ main{position:relative;z-index:2;width:min(1120px,94vw);margin:auto}
 .discord-link{color:#55aaff;text-decoration:underline;text-shadow:2px 2px #222}
 .discord-link:hover{color:#7fc0ff}
 
+/* Minecraft 1.2.5 style bottom-left credits */
+.minecraft-version-text{position:fixed;bottom:12px;left:14px;z-index:50;color:#fff;font-family:Minecraft,Arial,Helvetica,sans-serif;font-size:13px;line-height:1.35;text-shadow:2px 2px #000;user-select:none;pointer-events:none;max-width:55vw}
+.minecraft-version-text .version-title{color:#fff;font-weight:900}
+.minecraft-version-text .version-disclaimer{color:#ddd;font-size:11px;margin-top:2px}
+
+/* Discord Corner Button in Bottom-Right */
+.discord-corner-btn{position:fixed;bottom:12px;right:16px;z-index:50;display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:#fff;font-family:Minecraft,Arial,Helvetica,sans-serif;font-size:13px;font-weight:900;text-shadow:2px 2px #222;background:#5865f2;border:2px solid #1b1b1b;box-shadow:inset 2px 2px #8891f7,inset -2px -2px #363fb5,3px 3px rgba(0,0,0,.65);padding:8px 14px;cursor:pointer;transition:filter .15s ease,transform .05s ease}
+.discord-corner-btn i{font-size:17px}
+.discord-corner-btn:hover{filter:brightness(1.15);outline:2px solid rgba(255,255,255,.3)}
+.discord-corner-btn:active{box-shadow:inset 2px 2px #363fb5,inset -2px -2px #8891f7,1px 1px #111;transform:translate(2px,2px)}
+
 @media(max-width:780px){
   .port-browser{grid-template-columns:1fr}
   .port-list{border-right:0;border-bottom:2px solid #111;max-height:350px}
   .port-preview{padding:22px 0 10px}
+  .minecraft-version-text{max-width:50vw;font-size:11px}
+  .minecraft-version-text .version-disclaimer{font-size:10px}
 }
 @media(max-width:520px){
   .lang-switcher{top:10px;right:10px}
-  .lang-btn{padding:5px 8px;font-size:11px}
+  .lang-btn{padding:3px 5px}
+  .lang-flag{width:22px;height:22px}
   .title-screen{padding-top:4vh}
   .logo{max-height:150px}
   .menu-button{min-width:100%;font-size:12px}
@@ -82,4 +96,8 @@ main{position:relative;z-index:2;width:min(1120px,94vw);margin:auto}
   .port-title{font-size:12px}
   .port-meta{font-size:9px}
   .about-copy p{font-size:14px;line-height:1.5}
+  .minecraft-version-text{bottom:8px;left:10px;font-size:10px;max-width:54vw}
+  .minecraft-version-text .version-disclaimer{font-size:8.5px}
+  .discord-corner-btn{bottom:8px;right:10px;padding:6px 10px;font-size:11px;gap:5px}
+  .discord-corner-btn i{font-size:14px}
 }

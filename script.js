@@ -15,6 +15,7 @@ const translations = {
     "btn-about": "ABOUT US",
     "btn-back": "BACK",
     "controls": "<span>▲ ▼</span> SELECT &nbsp; <span>ENTER</span> OPEN &nbsp; <span>ESC</span> BACK",
+    "footer-disclaimer": "Developed by OptiCraft Heritage Community.<br>Not affiliated with Optiprojects.",
     "btn-view-project": "VIEW PROJECT",
     "btn-download": "DOWNLOAD",
     "btn-releases": "RELEASES",
@@ -52,6 +53,7 @@ const translations = {
     "btn-about": "SOBRE NOSOTROS",
     "btn-back": "VOLVER",
     "controls": "<span>▲ ▼</span> SELECCIONAR &nbsp; <span>ENTER</span> ABRIR &nbsp; <span>ESC</span> VOLVER",
+    "footer-disclaimer": "Desarrollado por OptiCraft Heritage Community.<br>No afiliado a Optiprojects.",
     "btn-view-project": "VER PROYECTO",
     "btn-download": "DESCARGAR",
     "btn-releases": "LANZAMIENTOS",
@@ -100,7 +102,7 @@ function setLanguage(lang) {
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.dataset.i18n;
     if (t[key]) {
-      if (key === 'controls') {
+      if (key === 'controls' || key === 'footer-disclaimer') {
         el.innerHTML = t[key];
       } else {
         el.textContent = t[key];
