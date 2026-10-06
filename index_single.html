@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="OptiCraft: Another Inheritance — unofficial OptiCraft Heritage ports.">
+<title>OptiCraft: Another Inheritance</title>
+<style>
+@font-face{font-family:Minecraft;src:url("Minecraft-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#111;color:#fff;font-family:Minecraft,Arial,Helvetica,sans-serif;image-rendering:pixelated}
+button,a{font:inherit;font-family:Minecraft,Arial,Helvetica,sans-serif}
+.screen{min-height:100vh;position:relative;background:#111;padding-bottom:60px}
+.panorama{position:fixed;inset:0;overflow:hidden;z-index:0;background:#111}
+.panorama-track{position:absolute;top:0;left:0;height:100%;width:200%;display:flex;animation:tu12-panorama 35s linear infinite}
+.panorama-track img{display:block;flex:0 0 50%;width:50%;height:100%;min-width:100vw;object-fit:cover;object-position:center;max-width:none;transform:none}.panorama-track img:first-child{transform:none}.panorama-track img:nth-child(2){transform:scaleX(-1);transform-origin:center center}
+@keyframes tu12-panorama{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.panorama-shade{position:fixed;inset:0;z-index:1;pointer-events:none;background:linear-gradient(rgba(0,0,0,.18),rgba(0,0,0,.52)),linear-gradient(90deg,rgba(0,0,0,.16),transparent 35%,transparent 65%,rgba(0,0,0,.16))}
+.title-screen{position:relative;z-index:2;text-align:center;padding:4vh 20px 1vh}
+.logo{display:block;width:min(720px,82vw);max-height:190px;margin:auto;object-fit:contain;filter:drop-shadow(8px 9px 0 rgba(0,0,0,.65))}
+.subtitle-art{display:block;width:min(430px,58vw);max-height:70px;object-fit:contain;margin:2px auto 0;filter:drop-shadow(4px 4px 0 rgba(0,0,0,.7))}
+main{position:relative;z-index:2;width:min(1120px,94vw);margin:auto}
+.legacy-menu{display:flex;flex-direction:column;align-items:center;gap:9px;margin:2vh auto 5vh}
+.menu-button,.legacy-button{display:block;cursor:pointer;text-decoration:none;color:#fff;font-weight:900;text-align:center;text-shadow:2px 2px #333;background:#777;border:2px solid #1b1b1b;box-shadow:inset 2px 2px #aaa,inset -2px -2px #444,3px 3px rgba(0,0,0,.65);padding:11px 20px;min-width:min(520px,90vw)}
+.menu-button:hover,.menu-button.selected,.legacy-button:hover{background:#8d8d8d;outline:2px solid rgba(255,255,255,.2)}
+.menu-button:active,.legacy-button:active{box-shadow:inset 2px 2px #444,inset -2px -2px #aaa,1px 1px #111;transform:translate(2px,2px)}
+.legacy-panel{display:none;background:rgba(38,38,38,.96);border:3px solid #111;box-shadow:inset 2px 2px #666,inset -2px -2px #171717,7px 7px rgba(0,0,0,.5);padding:20px}
+.legacy-panel.visible{display:block}
+.panel-heading{display:flex;align-items:center;justify-content:center;gap:20px;padding:7px 10px 16px;border-bottom:2px solid #111}
+.section-heading-art{display:block;width:min(430px,70vw);max-height:95px;object-fit:contain;filter:drop-shadow(4px 4px 0 rgba(0,0,0,.7))}
+.about-heading-art{width:min(470px,75vw)}
+.port-browser{display:grid;grid-template-columns:38% 62%;min-height:330px}
+.port-list{padding:12px 12px 12px 0;border-right:2px solid #111}
+.port-entry{width:100%;display:block;text-align:left;color:#fff;background:#555;border:2px solid #222;border-bottom-color:#111;padding:13px 14px;cursor:pointer;text-shadow:2px 2px #222}
+.port-entry:hover,.port-entry.active{background:#777}
+.port-title{display:block;font-weight:900;font-size:15px}
+.port-meta{display:block;margin-top:5px;font-size:11px;color:#ccc}
+.port-preview{padding:12px 0 12px 16px;display:flex;align-items:center}
+.port-view{display:none;width:100%}
+.port-view.active{display:block}
+.port-info{max-width:520px;margin:auto;text-align:center}
+.port-info h2{font-size:22px;margin:0 0 12px;text-shadow:2px 2px #111}
+.port-info p{font-size:14px;line-height:1.5;color:#ddd}
+.legacy-button{min-width:0;width:100%;font-size:12px;margin-top:18px}
+.controls{margin-top:12px;padding-top:10px;border-top:2px solid #111;color:#aaa;font-size:10px;text-align:right}
+.controls span{color:#fff;font-weight:900}
+.about-panel{max-width:900px;margin:0 auto 40px}
+.about-content{display:flex;justify-content:center;align-items:center;padding:20px 10px;max-width:100%;overflow:hidden}
+.about-art{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;min-width:0;max-width:100%;overflow:hidden}
+.about-art img{display:block;width:auto;max-width:100%;height:auto;max-height:none;object-fit:contain;filter:drop-shadow(4px 4px 0 rgba(0,0,0,.65))}
+.about-panel>.legacy-button{max-width:250px;margin:10px auto 0}
+.fixed-footer{position:fixed;left:0;right:0;bottom:0;z-index:3;margin:0;padding:15px 5vw;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;background:rgba(15,15,15,.85);border-top:2px solid #444;color:#aaa;font-size:10px}
+@media(max-width:780px){.port-browser{grid-template-columns:1fr}.port-list{border-right:0;border-bottom:2px solid #111}.port-preview{padding:22px 0 10px}.about-art{max-width:100%}.about-art img{max-width:100%}.about-discord{max-width:100%}.about-discord img{max-width:100%!important}}
+@media(max-width:520px){.title-screen{padding-top:3vh}.logo{max-height:150px}.subtitle-art{width:min(360px,70vw)}.menu-button{min-width:100%;font-size:12px}.legacy-panel{padding:12px}.section-heading-art{max-height:70px}.port-title{font-size:12px}.port-meta{font-size:9px}footer{font-size:8px}}
+.about-discord{display:block;line-height:0;max-width:100%;cursor:pointer}
+.about-discord img{width:auto;max-width:100%!important}
+.about-discord:hover{filter:brightness(1.12)}
+.about-content{display:flex;justify-content:center;align-items:center;padding:24px 20px;max-width:100%;overflow:hidden}
+.about-copy{width:min(760px,100%);margin:0 auto;text-align:center}
+.about-copy p{margin:0 0 18px;font-size:18px;line-height:1.6;color:#fff;text-shadow:2px 2px #222}
+.about-copy p:last-child{margin-bottom:0}
+.discord-link{color:#55aaff;text-decoration:underline;text-shadow:2px 2px #222}
+.discord-link:hover{color:#7fc0ff}
+@media(max-width:520px){.about-copy p{font-size:15px;line-height:1.5}}
+</style>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+<div class="screen">
+  <div class="panorama" aria-hidden="true"><div class="panorama-track"><img src="TU12_Panorama_Background_S.png" alt=""><img src="TU12_Panorama_Background_S.png" alt=""></div></div>
+  <div class="panorama-shade" aria-hidden="true"></div>
+  <header class="title-screen"><img class="logo" src="title.png" alt="OptiCraft: Another Inheritance"><img class="subtitle-art" src="minecraft-text (7).png" alt=""></header>
+  <main>
+    <section class="legacy-menu" id="home"><button class="menu-button selected" data-open="ports">LISTA DE PORTS</button><button class="menu-button" data-open="about">SOBRE NOSOTROS</button></section>
+    <section class="legacy-panel" id="ports">
+      <div class="panel-heading"><img class="section-heading-art" src="minecraft-text (8).png" alt="Ports"></div>
+      <div class="port-browser">
+        <div class="port-list">
+          <button class="port-entry active" data-port="dsi"><span class="port-title">OptiCraft Heritage — DSi</span><span class="port-meta">Nintendo DSi · Homebrew</span></button>
+          <button class="port-entry" data-port="3ds"><span class="port-title">OptiCraft Heritage — 3DS</span><span class="port-meta">Nintendo 3DS · Homebrew</span></button>
+          <button class="port-entry" data-port="ps2"><span class="port-title">OptiCraft Heritage — PS2 Enhanced</span><span class="port-meta">PlayStation 2 · Enhanced build</span></button>
+          <button class="port-entry" data-port="xbox"><span class="port-title">OptiCraft Heritage — Original Xbox</span><span class="port-meta">Xbox · Homebrew / xemu</span></button>
+          <button class="port-entry" data-port="android"><span class="port-title">OptiCraft Heritage — Android</span><span class="port-meta">Android · ARM64</span></button>
+          <button class="port-entry" data-port="switch"><span class="port-title">OptiCraft Heritage — Nintendo Switch</span><span class="port-meta">Nintendo Switch · Homebrew</span></button>
+          <button class="port-entry" data-port="ps4"><span class="port-title">OptiCraft Heritage — PS4</span><span class="port-meta">PlayStation 4 · Homebrew / shadPS4</span></button>
+          <button class="port-entry" data-port="ps3"><span class="port-title">OptiCraft Heritage — PS3</span><span class="port-meta">PlayStation 3 · Homebrew</span></button>
+          <button class="port-entry" data-port="vita"><span class="port-title">OptiCraft Heritage — PS Vita</span><span class="port-meta">PlayStation Vita · Homebrew</span></button>
+          <button class="port-entry" data-port="linux"><span class="port-title">OptiCraft Heritage — Linux</span><span class="port-meta">Linux · Community builds</span></button>
+        </div>
+        <div class="port-preview">
+          <article class="port-view active" id="view-dsi"><div class="port-info"><h2>Nintendo DSi</h2><p>Unofficial OptiCraft Heritage port for Nintendo DSi hardware.</p><a class="legacy-button" href="https://github.com/Danielpro9/Opticraftheritage-Dsi-port" target="_blank" rel="noreferrer">VIEW PROJECT</a></div></article>
+          <article class="port-view" id="view-3ds"><div class="port-info"><h2>Nintendo 3DS</h2><p>Unofficial OptiCraft Heritage port targeting Nintendo 3DS.</p><a class="legacy-button" href="https://drive.google.com/drive/folders/1FVjQv72blnR8LRe3ioc95BN1a9567nEk" target="_blank" rel="noreferrer">DOWNLOAD</a></div></article>
+          <article class="port-view" id="view-ps2"><div class="port-info"><h2>PlayStation 2 — Enhanced</h2><p>An improved OptiCraft Heritage build for the original PlayStation 2.</p><a class="legacy-button" href="https://www.mediafire.com/file/ourob3uhafy83w4/recetas_de_chocotorta.7z/file" target="_blank" rel="noreferrer">DOWNLOAD</a></div></article>
+          <article class="port-view" id="view-xbox"><div class="port-info"><h2>Original Xbox</h2><p>Community OptiCraft Heritage build targeting the original Xbox, with support for xemu.</p><a class="legacy-button" href="https://github.com/xeodeo/OptiCraft-Heritage-XBOX-CLASSIC-Edition/releases" target="_blank" rel="noreferrer">RELEASES</a></div></article>
+          <article class="port-view" id="view-android"><div class="port-info"><h2>Android</h2><p>ARM64 Android build of OptiCraft Heritage, currently targeting Android 7 and newer.</p><a class="legacy-button" href="https://github.com/ivandscds/OptiCraftHeritageEditionAndroid" target="_blank" rel="noreferrer">VIEW PROJECT</a></div></article>
+          <article class="port-view" id="view-switch"><div class="port-info"><h2>Nintendo Switch</h2><p>Native Nintendo Switch Homebrew target built with devkitA64 and libnx.</p><a class="legacy-button" href="https://github.com/franco2705/OptiCraftHeritageEditionNX" target="_blank" rel="noreferrer">VIEW PROJECT</a></div></article>
+          <article class="port-view" id="view-ps4"><div class="port-info"><h2>PlayStation 4</h2><p>Experimental PS4 Homebrew port using the OpenOrbis toolchain, also targeting shadPS4.</p><a class="legacy-button" href="https://github.com/ScratchMelodii0/OptiCraftHeritageEditionPS4" target="_blank" rel="noreferrer">VIEW PROJECT</a></div></article>
+          <article class="port-view" id="view-ps3"><div class="port-info"><h2>PlayStation 3</h2><p>Community OptiCraft Heritage port with a native PlayStation 3 target.</p><a class="legacy-button" href="https://github.com/nasheOS/OptiCraftHeritageEditionPS3" target="_blank" rel="noreferrer">VIEW PROJECT</a></div></article>
+          <article class="port-view" id="view-vita"><div class="port-info"><h2>PlayStation Vita</h2><p>Community OptiCraft Heritage port targeting PlayStation Vita hardware.</p><a class="legacy-button" href="https://github.com/DrDecki/OptiCraft-Vita" target="_blank" rel="noreferrer">VIEW PROJECT</a></div></article>
+          <article class="port-view" id="view-linux"><div class="port-info"><h2>Linux</h2><p>Community Linux builds of OptiCraft Heritage, including native SDL2/OpenGL builds.</p><a class="legacy-button" href="https://github.com/Muzifer01/OptiCraft173EditionLinux" target="_blank" rel="noreferrer">MUZIFER01 BUILD</a><a class="legacy-button" href="https://github.com/Brunoxx-create/OptiCraft-In-LINUX" target="_blank" rel="noreferrer">BRUNOX X BUILD</a></div></article>
+        </div>
+      </div>
+      <div class="controls"><span>▲ ▼</span> SELECT &nbsp; <span>ENTER</span> OPEN &nbsp; <span>ESC</span> BACK</div>
+    </section>
+    <section class="legacy-panel about-panel" id="about">
+      <div class="panel-heading"><img class="section-heading-art about-heading-art" src="minecraft-text (9).png" alt="About Us"></div>
+      <div class="about-content"><div class="about-copy"><p>basicamente esta pagina fue creada para poder compilar todos los ports no oficiales de heritage edition a distintas consolas, porque? bueno resulta que factores como youtube a veces no dejan compartir este tipo de proyectos, asi que este sera un repositorio para esos proyectos! (ADVERTENCIA: la mayoria de proyectos aun estan muy verdes, asi que no esperes builds super maduras aun) </p><p>solo contacta a este <a class="discord-link" href="https://discord.gg/5ndWfJzb7e" target="_blank" rel="noreferrer">discord</a> para agregar tu port!</p></div></div>
+      <button class="legacy-button back-home">BACK</button>
+    </section>
+  </main>
+</div>
+<script>
+const menuButtons=document.querySelectorAll('.menu-button[data-open]');
+const panels=document.querySelectorAll('.legacy-panel');
+const portButtons=document.querySelectorAll('.port-entry');
+const portViews=document.querySelectorAll('.port-view');
+
+function showPanel(id){
+  panels.forEach(p=>p.classList.toggle('visible',p.id===id));
+  document.getElementById(id)?.scrollIntoView({behavior:'smooth',block:'start'});
+}
+menuButtons.forEach(b=>b.addEventListener('click',()=>showPanel(b.dataset.open)));
+
+portButtons.forEach(button=>{
+  button.addEventListener('click',()=>{
+    const id=button.dataset.port;
+    portButtons.forEach(x=>x.classList.toggle('active',x===button));
+    portViews.forEach(x=>x.classList.toggle('active',x.id==='view-'+id));
+  });
+});
+
+document.querySelector('.back-home')?.addEventListener('click',()=>{
+  document.getElementById('about').classList.remove('visible');
+  window.scrollTo({top:0,behavior:'smooth'});
+});
+</script>
+</body>
+</html>
