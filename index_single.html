@@ -60,6 +60,7 @@ main{position:relative;z-index:2;width:min(1120px,94vw);margin:auto}
 .port-info h2{font-size:22px;margin:0 0 12px;text-shadow:2px 2px #111}
 .port-info p{font-size:14px;line-height:1.5;color:#ddd}
 .legacy-button{min-width:0;width:100%;font-size:12px;margin-top:18px}
+.port-info .legacy-button+.legacy-button{margin-top:10px}
 .controls{margin-top:12px;padding-top:10px;border-top:2px solid #111;color:#aaa;font-size:10px;text-align:right}
 .controls span{color:#fff;font-weight:900}
 
@@ -168,6 +169,10 @@ body.panel-open .lang-switcher{
             <span class="port-title">OptiCraft Heritage — PS2 Enhanced</span>
             <span class="port-meta" data-i18n="port-ps2-meta">PlayStation 2 · Enhanced build</span>
           </button>
+          <button class="port-entry" data-port="psp">
+            <span class="port-title">OptiCraft Heritage — PSP</span>
+            <span class="port-meta" data-i18n="port-psp-meta">PlayStation Portable · Homebrew</span>
+          </button>
           <button class="port-entry" data-port="xbox">
             <span class="port-title">OptiCraft Heritage — Original Xbox</span>
             <span class="port-meta" data-i18n="port-xbox-meta">Xbox · Homebrew / xemu</span>
@@ -216,7 +221,16 @@ body.panel-open .lang-switcher{
             <div class="port-info">
               <h2>PlayStation 2 — Enhanced</h2>
               <p data-i18n="port-ps2-desc">An improved OptiCraft Heritage build for the original PlayStation 2.</p>
-              <a class="legacy-button" href="https://www.mediafire.com/file/ourob3uhafy83w4/recetas_de_chocotorta.7z/file" target="_blank" rel="noreferrer" data-i18n="btn-download">DOWNLOAD</a>
+              <a class="legacy-button" href="https://github.com/OptiJuegos/OptiCraftHeritageEdition" target="_blank" rel="noreferrer" data-i18n="btn-view-project">VIEW PROJECT</a>
+              <a class="legacy-button" href="https://gofile.io/d/Xr75Y9RV" target="_blank" rel="noreferrer" data-i18n="btn-ps2-build95">DOWNLOAD (BUILD 95)</a>
+            </div>
+          </article>
+          <article class="port-view" id="view-psp">
+            <div class="port-info">
+              <h2>PlayStation Portable</h2>
+              <p data-i18n="port-psp-desc">Unofficial OptiCraft Heritage port for PlayStation Portable (PSP).</p>
+              <a class="legacy-button" href="https://github.com/erluza/OCHeritage-PSP" target="_blank" rel="noreferrer" data-i18n="btn-view-project">VIEW PROJECT</a>
+              <a class="legacy-button" href="https://www.mediafire.com/file/ttcrpp89zhqf3mc/OPTICRAFT_PSP_0.0.0.2.7z/file" target="_blank" rel="noreferrer" data-i18n="btn-psp-download">DOWNLOAD (PRECOMPILED)</a>
             </div>
           </article>
           <article class="port-view" id="view-xbox">
@@ -333,6 +347,10 @@ const translations = {
     "port-3ds-desc": "Unofficial OptiCraft Heritage port targeting Nintendo 3DS.",
     "port-ps2-meta": "PlayStation 2 · Enhanced build",
     "port-ps2-desc": "An improved OptiCraft Heritage build for the original PlayStation 2.",
+    "btn-ps2-build95": "DOWNLOAD (BUILD 95)",
+    "port-psp-meta": "PlayStation Portable · Homebrew",
+    "port-psp-desc": "Unofficial OptiCraft Heritage port for PlayStation Portable (PSP).",
+    "btn-psp-download": "DOWNLOAD (PRECOMPILED)",
     "port-xbox-meta": "Xbox · Homebrew / xemu",
     "port-xbox-desc": "Community OptiCraft Heritage build targeting the original Xbox, with support for xemu.",
     "port-android-meta": "Android · ARM64",
@@ -371,6 +389,10 @@ const translations = {
     "port-3ds-desc": "Port no oficial de OptiCraft Heritage para Nintendo 3DS.",
     "port-ps2-meta": "PlayStation 2 · Versión mejorada",
     "port-ps2-desc": "Una versión mejorada de OptiCraft Heritage para la PlayStation 2 original.",
+    "btn-ps2-build95": "DESCARGAR (BUILD 95)",
+    "port-psp-meta": "PlayStation Portable · Homebrew",
+    "port-psp-desc": "Port no oficial de OptiCraft Heritage para PlayStation Portable (PSP).",
+    "btn-psp-download": "DESCARGAR (PRECOMPILADO)",
     "port-xbox-meta": "Xbox · Homebrew / xemu",
     "port-xbox-desc": "Versión comunitaria de OptiCraft Heritage para la Xbox clásica, con soporte para xemu.",
     "port-android-meta": "Android · ARM64",
