@@ -254,3 +254,68 @@ window.addEventListener('keydown', e => {
     }
   }
 });
+
+// --- Project Discontinued Notice Modal ---
+function initDiscontinuedModal() {
+  const modal = document.getElementById('discontinued-modal');
+  if (!modal) return;
+
+  const STORAGE_KEY = 'och_discontinued_dismissed';
+  const SESSION_KEY = 'och_discontinued_session_dismissed';
+
+  const isPermanentlyDismissed = localStorage.getItem(STORAGE_KEY) === 'true';
+  const isSessionDismissed = sessionStorage.getItem(SESSION_KEY) === 'true';
+
+  if (isPermanentlyDismissed || isSessionDismissed) {
+    return;
+  }
+
+  function openModal() {
+    modal.removeAttribute('hidden');
+    void modal.offsetWidth; // trigger reflow for smooth transition
+    modal.classList.add('visible');
+    document.body.classList.add('modal-open');
+  }
+
+  function closeModal(persistPermanently) {
+    modal.classList.remove('visible');
+    document.body.classList.remove('modal-open');
+    setTimeout(() => {
+      modal.setAttribute('hidden', '');
+    }, 220);
+
+    sessionStorage.setItem(SESSION_KEY, 'true');
+    if (persistPermanently) {
+      localStorage.setItem(STORAGE_KEY, 'true');
+    }
+  }
+
+  setTimeout(openModal, 150);
+
+  const btnNeverShow = document.getElementById('btn-modal-never-show');
+  const btnClose = document.getElementById('btn-modal-close');
+
+  btnNeverShow?.addEventListener('click', () => {
+    closeModal(true);
+  });
+
+  btnClose?.addEventListener('click', () => {
+    closeModal(false);
+  });
+
+  modal.addEventListener('click', e => {
+    if (e.target === modal) {
+      closeModal(false);
+    }
+  });
+
+  window.addEventListener('keydown', e => {
+    if (modal.classList.contains('visible') && (e.key === 'Escape' || e.key === 'Enter')) {
+      e.preventDefault();
+      e.stopPropagation();
+      closeModal(false);
+    }
+  }, true);
+}
+
+initDiscontinuedModal();
