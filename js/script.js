@@ -77,7 +77,14 @@ const translations = {
       <p>This platform was created as a central hub to compile and showcase all <strong>unofficial OptiCraft Heritage Edition ports</strong> across various consoles and devices, making them easily accessible to the community beyond the restrictions of platforms like YouTube.</p>
       <p class="about-warning">⚠️ <strong>Notice:</strong> Most projects are currently in early development (WIP), so please expect experimental builds and possible bugs.</p>
       <p>Have a port or want to contribute? Join our official <a class="discord-link" href="https://discord.gg/5ndWfJzb7e" target="_blank" rel="noreferrer">Discord server</a> to submit your project!</p>
-    `
+    `,
+    "modal-title": "KEEP THE PORTS ALIVE",
+    "modal-lead": "A friendly reminder from the OptiCraft Heritage community.",
+    "modal-msg-links": "If you enjoy a port, remind its developer to keep the download links updated to the latest version, so everyone can find the newest builds.",
+    "modal-msg-source": "We also recommend always asking developers for the source code of their projects. Sharing code keeps ports alive, portable and easier to maintain.",
+    "modal-subtext": "Good links and shared source code keep this site useful for everyone. Thank you for supporting the developers!",
+    "modal-btn-never": "DON'T SHOW AGAIN",
+    "modal-btn-ok": "GOT IT"
   },
   es: {
     metaDesc: "OptiCraft Heritage Developer Community — ports no oficiales de OptiCraft Heritage.",
@@ -147,7 +154,14 @@ const translations = {
       <p>Esta plataforma fue creada como un repositorio central para recopilar y dar visibilidad a todos los <strong>ports no oficiales de OptiCraft Heritage Edition</strong> en distintas consolas y plataformas, facilitando su acceso a la comunidad frente a las limitaciones de plataformas como YouTube.</p>
       <p class="about-warning">⚠️ <strong>Aviso:</strong> La mayoría de los proyectos se encuentran en etapas tempranas de desarrollo (WIP), por lo que aún pueden presentar inestabilidad o errores.</p>
       <p>¿Tienes un port o quieres colaborar? ¡Únete a nuestro <a class="discord-link" href="https://discord.gg/5ndWfJzb7e" target="_blank" rel="noreferrer">Discord oficial</a> para agregar tu proyecto!</p>
-    `
+    `,
+    "modal-title": "MANTENGAMOS VIVOS LOS PORTS",
+    "modal-lead": "Un recordatorio amistoso de la comunidad.",
+    "modal-msg-links": "Si disfrutas un port, recuérdale a su desarrollador que mantenga los enlaces de descarga al día con la última versión, para que todos encuentren las compilaciones más recientes.",
+    "modal-msg-source": "También te recomendamos pedir siempre el código fuente: compartirlo mantiene los ports vivos y fáciles de mantener.",
+    "modal-subtext": "Buenos enlaces y código compartido mantienen este sitio útil. ¡Gracias por el apoyo!",
+    "modal-btn-never": "NO VOLVER A MOSTRAR",
+    "modal-btn-ok": "ENTENDIDO"
   }
 };
 
@@ -255,13 +269,13 @@ window.addEventListener('keydown', e => {
   }
 });
 
-// --- Project Discontinued Notice Modal ---
-function initDiscontinuedModal() {
+// --- Community Notice Modal ---
+function initCommunityNoticeModal() {
   const modal = document.getElementById('discontinued-modal');
   if (!modal) return;
 
-  const STORAGE_KEY = 'och_discontinued_dismissed';
-  const SESSION_KEY = 'och_discontinued_session_dismissed';
+  const STORAGE_KEY = 'och_community_notice_dismissed';
+  const SESSION_KEY = 'och_community_notice_session_dismissed';
 
   const isPermanentlyDismissed = localStorage.getItem(STORAGE_KEY) === 'true';
   const isSessionDismissed = sessionStorage.getItem(SESSION_KEY) === 'true';
@@ -318,4 +332,4 @@ function initDiscontinuedModal() {
   }, true);
 }
 
-initDiscontinuedModal();
+initCommunityNoticeModal();
