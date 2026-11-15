@@ -117,12 +117,10 @@
               <span class="port-meta" data-i18n="port-vita-meta">PlayStation Vita · Homebrew</span>
             </button>
             -->
-            <!-- Oculto temporalmente: Windows (sin builds tras quitar nightlies)
             <button class="port-entry" data-port="windows">
               <span class="port-title"><i class="fa-brands fa-windows" aria-hidden="true"></i>OptiCraft Heritage — Windows</span>
-              <span class="port-meta" data-i18n="port-windows-meta">Windows · GCC / MSVC</span>
+              <span class="port-meta" data-i18n="port-windows-meta">Windows · Official repo</span>
             </button>
-            -->
             <button class="port-entry" data-port="linux">
               <span class="port-title"><i class="fa-brands fa-linux" aria-hidden="true"></i>OptiCraft Heritage — Linux</span>
               <span class="port-meta" data-i18n="port-linux-meta">Linux · Community builds</span>
@@ -208,6 +206,9 @@
                   rel="noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i><span
                     data-i18n="btn-view-project">VIEW PROJECT</span></a>
                 -->
+                <a class="legacy-button" href="https://bolha.dev/erluza/OptiCraftHeritage" target="_blank"
+                  rel="noreferrer"><i class="fa-solid fa-code-branch" aria-hidden="true"></i><span
+                    data-i18n="btn-official-repo">OFFICIAL REPO</span></a>
                 <a class="legacy-button"
                   href="https://www.mediafire.com/file/1vws08lghp626c4/OptiCraft+Heritage+PS2+97A.7z/file"
                   target="_blank" rel="noreferrer"><i class="fa-solid fa-download" aria-hidden="true"></i><span
@@ -308,61 +309,32 @@
               </div>
             </article>
             -->
-            <!-- Oculto temporalmente: Windows (sin builds tras quitar nightlies)
             <article class="port-view" id="view-windows">
               <div class="port-info">
                 <h2>Windows</h2>
-                <p data-i18n="port-windows-desc">Native Windows builds of OptiCraft Heritage, from 64-bit GCC/MSVC to
-                  legacy 32-bit and ARM64.</p>
-                <a class="legacy-button" href="https://github.com/erluza/OCHeritageCommunityFork" target="_blank"
-                  rel="noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i><span
-                    data-i18n="btn-view-project">VIEW PROJECT</span></a>
-                <a class="legacy-button"
-                  href="https://nightly.link/erluza/OCHeritageCommunityFork/workflows/build.yml/main/opticraft-windows-x64-gcc"
-                  target="_blank" rel="noreferrer"><i class="fa-solid fa-moon" aria-hidden="true"></i><span
-                    data-i18n="btn-nightly-x64-gcc">NIGHTLY X64 GCC (CI)</span></a>
-                <a class="legacy-button"
-                  href="https://nightly.link/erluza/OCHeritageCommunityFork/workflows/build.yml/main/opticraft-windows-x86_64-v3-gcc"
-                  target="_blank" rel="noreferrer"><i class="fa-solid fa-moon" aria-hidden="true"></i><span
-                    data-i18n="btn-nightly-v3">NIGHTLY X86-64 V3 (CI)</span></a>
-                <a class="legacy-button"
-                  href="https://nightly.link/erluza/OCHeritageCommunityFork/workflows/build.yml/main/opticraft-windows-zen4-gcc"
-                  target="_blank" rel="noreferrer"><i class="fa-solid fa-moon" aria-hidden="true"></i><span
-                    data-i18n="btn-nightly-zen4">NIGHTLY ZEN 4 (CI)</span></a>
-                <a class="legacy-button"
-                  href="https://nightly.link/erluza/OCHeritageCommunityFork/workflows/build.yml/main/opticraft-windows-zen3-gcc"
-                  target="_blank" rel="noreferrer"><i class="fa-solid fa-moon" aria-hidden="true"></i><span
-                    data-i18n="btn-nightly-zen3">NIGHTLY ZEN 3 (CI)</span></a>
-                <a class="legacy-button"
-                  href="https://nightly.link/erluza/OCHeritageCommunityFork/workflows/build.yml/main/opticraft-windows-x64-msvc"
-                  target="_blank" rel="noreferrer"><i class="fa-solid fa-moon" aria-hidden="true"></i><span
-                    data-i18n="btn-nightly-x64-msvc">NIGHTLY X64 MSVC (CI)</span></a>
-                <a class="legacy-button"
-                  href="https://nightly.link/erluza/OCHeritageCommunityFork/workflows/build.yml/main/opticraft-windows-arm64-gcc"
-                  target="_blank" rel="noreferrer"><i class="fa-solid fa-moon" aria-hidden="true"></i><span
-                    data-i18n="btn-nightly-arm64">NIGHTLY ARM64 (CI)</span></a>
-                <a class="legacy-button"
-                  href="https://nightly.link/erluza/OCHeritageCommunityFork/workflows/build.yml/main/opticraft-windows-x86-gcc"
-                  target="_blank" rel="noreferrer"><i class="fa-solid fa-moon" aria-hidden="true"></i><span
-                    data-i18n="btn-nightly-x86">NIGHTLY X86 32-BIT (CI)</span></a>
-                <a class="legacy-button"
-                  href="https://nightly.link/erluza/OCHeritageCommunityFork/workflows/build.yml/main/opticraft-windows-x86-gcc-legacy"
-                  target="_blank" rel="noreferrer"><i class="fa-solid fa-moon" aria-hidden="true"></i><span
-                    data-i18n="btn-nightly-x86-legacy">NIGHTLY X86 LEGACY (CI)</span></a>
+                <p data-i18n="port-windows-desc">Windows support for OptiCraft Heritage is available through the
+                  unified official repository.</p>
+                <a class="legacy-button" href="https://bolha.dev/erluza/OptiCraftHeritage" target="_blank"
+                  rel="noreferrer"><i class="fa-solid fa-code-branch" aria-hidden="true"></i><span
+                    data-i18n="btn-official-repo">OFFICIAL REPO</span></a>
               </div>
             </article>
-            -->
             <article class="port-view" id="view-linux">
               <div class="port-info">
                 <h2>Linux</h2>
-                <p data-i18n="port-linux-desc">Community Linux builds of OptiCraft Heritage, including native
-                  SDL2/OpenGL builds.</p>
+                <p data-i18n="port-linux-desc">Linux builds of OptiCraft Heritage are distributed through the unified
+                  official repository.</p>
+                <a class="legacy-button" href="https://bolha.dev/erluza/OptiCraftHeritage" target="_blank"
+                  rel="noreferrer"><i class="fa-solid fa-code-branch" aria-hidden="true"></i><span
+                    data-i18n="btn-official-repo">OFFICIAL REPO</span></a>
+                <!-- Oculto temporalmente: builds de Muzifer01 y Brunox X
                 <a class="legacy-button" href="https://github.com/Muzifer01/OptiCraft173EditionLinux" target="_blank"
                   rel="noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i><span
                     data-i18n="btn-muzifer-build">MUZIFER01 BUILD</span></a>
                 <a class="legacy-button" href="https://github.com/Brunoxx-create/OptiCraft-In-LINUX" target="_blank"
                   rel="noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i><span
                     data-i18n="btn-brunox-build">BRUNOX X BUILD</span></a>
+                -->
                 <!-- Oculto temporalmente: nightly
                 <a class="legacy-button"
                   href="https://nightly.link/erluza/OCHeritageCommunityFork/workflows/build.yml/main/opticraft-linux-x64-gcc"
